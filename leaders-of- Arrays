@@ -1,0 +1,20 @@
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+         ArrayList<Integer> arr2 = new ArrayList<Integer>(); 
+        
+        int Maxele = arr[n-1];
+        arr2.add(Maxele);
+        for(int i = n - 2 ; i >= 0 ; i--){
+            
+            if(arr[i] >= Maxele){
+                Maxele = arr[i];
+                arr2.add(Maxele);
+            }
+            
+        }
+        // Your code here
+        Collections.sort(arr2, Collections.reverseOrder());
+        return arr2;
+    }
+}
