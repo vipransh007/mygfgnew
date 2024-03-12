@@ -1,0 +1,27 @@
+class Solution {
+ public static ArrayList<Integer> duplicates(int arr[], int n) {
+        ArrayList<Integer> list = new ArrayList<>();
+        HashSet<Integer> addedSet = new HashSet<>(); 
+        
+        Arrays.sort(arr);
+        int i = 0;
+        int j = 1;
+
+        while (j < n) {
+            if (arr[i] == arr[j] && !addedSet.contains(arr[i])) {
+                j++;
+                list.add(arr[i]);
+                addedSet.add(arr[i]);
+            } else {
+                i = j;
+                j++;
+            }
+        }
+
+        if (list.isEmpty()) {
+            list.add(-1);
+        }
+
+        return list;
+    }
+}
